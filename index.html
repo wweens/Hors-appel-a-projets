@@ -14,7 +14,7 @@
       <div class="mark" aria-hidden="true">✦</div>
       <div><strong>CARDIE-SEPIA</strong><span>Académie de Lille</span></div>
     </div>
-    <div class="header-actions"><a class="site-return" href="https://cardie.site.ac-lille.fr/" target="_blank" rel="noopener">← Site officiel CARDIE-SEPIA</a><span class="demo-badge">Démonstrateur · aucun envoi réel</span></div>
+    <div class="header-actions"><a class="site-return" href="https://cardie.site.ac-lille.fr/" target="_blank" rel="noopener">← Site officiel CARDIE-SEPIA</a><a class="site-return" id="blankPdf" href="assets/modele-vierge.pdf" download>Télécharger le PDF vierge</a><span class="demo-badge">Démonstrateur · aucun envoi réel</span></div>
   </header>
 
   <section class="model-picker" id="modelPicker" hidden>
@@ -121,7 +121,7 @@
           <fieldset><legend>L’action a-t-elle besoin d’une valorisation en HSE ?</legend><div class="choices compact"><label><input type="radio" name="hse" value="Oui"><span>Oui</span></label><label><input type="radio" name="hse" value="Non"><span>Non</span></label></div></fieldset><div class="conditional" data-show="hse:Oui"><label>Usage prévu<textarea name="hse_details" rows="4"></textarea></label></div></div>
           <div class="upload"><div class="upload-icon">↥</div><div><h3>Documents complémentaires</h3><p>Ajoutez les documents permettant de préciser le projet.</p><label class="file-btn">Choisir des fichiers<input id="attachments" type="file" multiple accept=".pdf,.doc,.docx,.odt,.xls,.xlsx,.ods,.ppt,.pptx,.odp,.jpg,.jpeg,.png"></label></div><ul id="fileList"></ul></div>
           <div class="security-note"><b>Dans ce démonstrateur</b>, les fichiers sélectionnés ne sont pas transmis et ne sont pas conservés après fermeture de la page.</div>
-          <div class="final-actions"><button type="button" class="secondary" id="downloadBackup">Télécharger une copie de sécurité</button><button type="button" class="secondary" id="printPdf">Imprimer / enregistrer en PDF</button><button type="button" class="primary submit-demo" id="submitDemo">Simuler le dépôt du dossier</button></div>
+          <div class="final-actions"><button type="button" class="secondary" id="downloadBackup">Télécharger une copie de sécurité</button><button type="button" class="secondary" id="printPdf">Télécharger le dossier PDF rempli</button><button type="button" class="primary submit-demo" id="submitDemo">Simuler le dépôt du dossier</button></div>
         </section>
 
         <div class="form-footer"><button type="button" class="back" id="prevBtn">← Précédent</button><span id="requiredHint">Les champs marqués « requis » doivent être complétés.</span><button type="button" class="primary" id="nextBtn">Enregistrer et continuer →</button></div>
@@ -130,6 +130,7 @@
   </main>
 
   <dialog id="successDialog"><div class="success-mark">✓</div><h2>Dépôt simulé avec succès</h2><p>Dans la version institutionnelle, le dossier serait maintenant transmis à l’équipe CARDIE-SEPIA et une attestation serait générée.</p><div class="dialog-actions"><button id="closeDialog" class="primary">Revenir au dossier</button></div></dialog>
+  <script src="pdf-lib.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
