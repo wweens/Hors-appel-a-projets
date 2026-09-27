@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dépôt d’un projet innovant — CARDIE-SEPIA Lille</title>
+  <meta name="description" content="Démonstrateur du formulaire en ligne de dépôt d’un projet innovant CARDIE-SEPIA Lille.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23c96f3d' d='M29 5h6v9h-6zM12 14l4-4 7 7-4 4zm36 0-4-4-7 7 4 4zM8 31h10v6H8zm38 0h10v6H46z'/%3E%3Cpath fill='%23f4b56d' d='M32 15a17 17 0 0 0-10 31c3 2 4 5 4 8h12c0-3 1-6 4-8a17 17 0 0 0-10-31z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-default-mode="hors-appel">
+  <header class="masthead">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">✦</div>
+      <div><strong>CARDIE-SEPIA</strong><span>Académie de Lille</span></div>
+    </div>
+    <div class="header-actions"><a class="site-return" href="https://cardie.site.ac-lille.fr/" target="_blank" rel="noopener">← Site officiel CARDIE-SEPIA</a><span class="demo-badge">Démonstrateur · aucun envoi réel</span></div>
+  </header>
+
+  <section class="model-picker" id="modelPicker" hidden>
+    <div class="picker-banner"><img src="assets/banniere-cardie.png" alt="CARDIE-SEPIA — Académie de Lille"></div>
+    <div class="picker-content">
+      <p class="eyebrow dark">Dépôt de projet innovant</p>
+      <h1>Choisissez le formulaire correspondant à votre situation</h1>
+      <p>Chaque modèle reprend le dossier CARDIE-SEPIA qui lui correspond. Cette maquette n’envoie aucune donnée.</p>
+      <div class="model-cards">
+        <a href="?mode=public"><span>01</span><div><strong>Appel à projets 2026–2027</strong><small>Établissements publics</small></div><b>→</b></a>
+        <a href="?mode=prive"><span>02</span><div><strong>Appel à projets 2026–2027</strong><small>Établissements privés</small></div><b>→</b></a>
+        <a href="?mode=hors-appel"><span>03</span><div><strong>Dépôt de projet</strong><small>Hors appel à projets</small></div><b>→</b></a>
+      </div>
+    </div>
+  </section>
+
+  <main class="layout" id="formApp">
+    <aside class="sidebar" aria-label="Progression du dossier">
+      <img class="sidebar-image" src="assets/background-cardie.png" alt="Arbre de l’innovation CARDIE-SEPIA">
+      <a class="choose-model" href="https://wweens.github.io/CARDIE-SEPIA-Formulaires/">← Choisir un autre formulaire</a>
+      <p class="eyebrow" id="formKicker">Appel à projets 2026–2027</p>
+      <h1 id="formMainTitle">Établissements publics</h1>
+      <p class="form-full-title" id="formFullTitle">Formulaire d’appel à projets pour établissements publics</p>
+      <p class="intro">Constituez votre dossier à votre rythme. Votre brouillon reste enregistré sur cet appareil.</p>
+      <nav id="stepNav"></nav>
+      <div class="save-state" id="saveState"><span></span>Brouillon enregistré</div>
+    </aside>
+
+    <section class="workspace">
+      <div class="topline">
+        <div><span id="stepLabel">Étape 1 sur 7</span><strong id="stepTitle">Nature du projet</strong></div>
+        <div class="progress" aria-label="Progression"><i id="progressBar"></i></div>
+      </div>
+
+      <form id="projectForm" novalidate>
+        <section class="step active" data-title="Nature du projet">
+          <div class="section-head"><span>01</span><div><h2>Nature du projet</h2><p>Commençons par identifier la démarche proposée.</p></div></div>
+          <fieldset><legend>Typologie du projet <em>requis</em></legend><div class="choices two">
+            <label><input type="radio" name="typologie" value="Projet innovant" required><span><b>Projet innovant</b><small>Une démarche nouvelle ou renouvelée.</small></span></label>
+            <label><input type="radio" name="typologie" value="Expérimentation dérogatoire"><span><b>Expérimentation dérogatoire</b><small>Article L. 314-2 du Code de l’éducation.</small></span></label>
+          </div></fieldset>
+          <fieldset><legend>Le projet est-il adossé à la recherche ?</legend><div class="choices compact">
+            <label><input type="radio" name="recherche" value="Oui"><span>Oui</span></label><label><input type="radio" name="recherche" value="Non"><span>Non</span></label>
+          </div></fieldset>
+          <div class="conditional" data-show="recherche:Oui"><label>Laboratoire, chercheur ou travaux de recherche<textarea name="recherche_details" rows="4" placeholder="Précisez les personnes, structures ou travaux de référence…"></textarea></label></div>
+        </section>
+
+        <section class="step" data-title="Contexte du dépôt">
+          <div class="section-head"><span>02</span><div><h2>Contexte du dépôt</h2><p>Identifiez la structure qui porte le projet.</p></div></div>
+          <fieldset><legend>Structure déposante</legend><div class="choices compact"><label><input type="radio" name="structure" value="Corps d’inspection"><span>Corps d’inspection</span></label><label><input type="radio" name="structure" value="Établissement scolaire"><span>Établissement scolaire</span></label></div></fieldset>
+          <div class="grid two"><label>École ou établissement<input name="etablissement" autocomplete="organization"></label><label>UAI<input name="uai" placeholder="Ex. 0590000A"></label><label>Typologie<select name="type_etab"><option value="">Sélectionner…</option><option>École</option><option>Collège</option><option>Lycée général et technologique</option><option>Lycée professionnel</option><option>Autre</option></select></label><label>Ville<input name="ville" autocomplete="address-level2"></label></div>
+          <fieldset class="hors-only"><legend>Statut de l’établissement</legend><div class="choices compact"><label><input type="radio" name="statut_etablissement" value="Public"><span>Public</span></label><label><input type="radio" name="statut_etablissement" value="Privé"><span>Privé</span></label></div></fieldset>
+          <fieldset><legend>Éducation prioritaire</legend><div class="choices compact"><label><input type="radio" name="education_prioritaire" value="Oui"><span>Oui</span></label><label><input type="radio" name="education_prioritaire" value="Non"><span>Non</span></label></div></fieldset>
+          <label>IEN / IA-IPR référent<input name="inspecteur" placeholder="Nom et fonction"></label>
+        </section>
+
+        <section class="step" data-title="Projet et démarche">
+          <div class="section-head"><span>03</span><div><h2>Projet et démarche</h2><p>Présentez l’origine et les intentions du projet.</p></div></div>
+          <label>Intitulé de l’action <em>requis</em><input name="intitule" required placeholder="Un titre court et explicite"></label>
+          <label>Diagnostic de départ ayant initié la démarche<textarea name="genese" rows="7" placeholder="Décrivez le contexte, les constats et les besoins identifiés…"></textarea></label>
+          <div class="question-list">
+            <fieldset><legend>Articulation avec les résultats aux évaluations nationales</legend><div class="choices compact"><label><input type="radio" name="evaluations_nationales" value="Oui"><span>Oui</span></label><label><input type="radio" name="evaluations_nationales" value="Non"><span>Non</span></label></div></fieldset>
+            <fieldset><legend>Lien avec l’auto-évaluation ou l’évaluation externe</legend><div class="choices compact"><label><input type="radio" name="auto_evaluation" value="Oui"><span>Oui</span></label><label><input type="radio" name="auto_evaluation" value="Non"><span>Non</span></label></div></fieldset>
+            <fieldset><legend>Inscription dans le projet d’école ou d’établissement</legend><div class="choices compact"><label><input type="radio" name="projet_etab" value="Oui"><span>Oui</span></label><label><input type="radio" name="projet_etab" value="Non"><span>Non</span></label></div></fieldset>
+          </div>
+          <fieldset><legend>État du projet</legend><div class="choices compact"><label><input type="radio" name="etat_projet" value="Préexistant"><span>Projet préexistant</span></label><label><input type="radio" name="etat_projet" value="Nouveau"><span>Nouveau projet</span></label></div></fieldset>
+        </section>
+
+        <section class="step" data-title="Mise en œuvre">
+          <div class="section-head"><span>04</span><div><h2>Mise en œuvre</h2><p>Décrivez concrètement le déploiement envisagé.</p></div></div>
+          <label>Objectifs pédagogiques<textarea name="objectifs" rows="6"></textarea></label>
+          <label>Plan d’action — étapes, démarche et contenu<textarea name="plan_action" rows="8"></textarea></label>
+          <div class="grid two"><label>Principaux leviers<textarea name="leviers" rows="5"></textarea></label><label>Principaux freins<textarea name="freins" rows="5"></textarea></label></div>
+          <fieldset><legend>Une instance de pilotage ou de suivi est-elle prévue ?</legend><div class="choices compact"><label><input type="radio" name="pilotage" value="Oui"><span>Oui</span></label><label><input type="radio" name="pilotage" value="Non"><span>Non</span></label></div></fieldset>
+          <div class="conditional" data-show="pilotage:Oui"><label>Instance et modalités<textarea name="pilotage_details" rows="4"></textarea></label></div>
+          <fieldset><legend>Le projet nécessite-t-il des formations ?</legend><div class="choices compact"><label><input type="radio" name="formation" value="Oui"><span>Oui</span></label><label><input type="radio" name="formation" value="Non"><span>Non</span></label></div></fieldset>
+          <div class="conditional" data-show="formation:Oui"><label>Thématiques de formation<textarea name="formation_details" rows="4"></textarea></label></div>
+          <label>Début et durée du projet pour les élèves<textarea name="temporalite" rows="4"></textarea></label>
+          <fieldset><legend>Le projet s’inscrit-il dans un plan pluriannuel ?</legend><div class="choices compact"><label><input type="radio" name="pluriannuel" value="Oui"><span>Oui</span></label><label><input type="radio" name="pluriannuel" value="Non"><span>Non</span></label></div></fieldset>
+          <div class="conditional" data-show="pluriannuel:Oui"><label>Temporalité prévue<textarea name="pluriannuel_details" rows="4"></textarea></label></div>
+        </section>
+
+        <section class="step" data-title="Acteurs investis">
+          <div class="section-head"><span>05</span><div><h2>Acteurs investis</h2><p>Présentez l’équipe et les partenaires mobilisés.</p></div></div>
+          <div class="repeater" data-name="porteurs"><div class="repeat-head"><h3>Porteur ou porteuse du projet</h3><button type="button" class="add">+ Ajouter</button></div><div class="repeat-items"><div class="repeat-row"><label>Nom<input data-field="nom"></label><label>Prénom<input data-field="prenom"></label><label>Fonction / discipline<input data-field="fonction"></label><button type="button" class="remove" aria-label="Supprimer">×</button></div></div></div>
+          <h3>Communauté éducative</h3><div class="grid three"><label>Élèves — nombre<input type="number" min="0" name="eleves_nombre"></label><label>Élèves — niveaux<input name="eleves_niveaux"></label><span></span><label>Enseignants — nombre<input type="number" min="0" name="enseignants_nombre"></label><label>Disciplines<input name="enseignants_disciplines"></label><span></span><label>Autres personnels — nombre<input type="number" min="0" name="autres_nombre"></label><label>Fonctions<input name="autres_fonctions"></label></div>
+          <fieldset><legend>Les familles sont-elles associées ?</legend><div class="choices compact"><label><input type="radio" name="familles" value="Oui"><span>Oui</span></label><label><input type="radio" name="familles" value="Non"><span>Non</span></label></div></fieldset><div class="conditional" data-show="familles:Oui"><label>Modalités et rôle<textarea name="familles_details" rows="4"></textarea></label></div>
+          <div class="repeater" data-name="partenaires"><div class="repeat-head"><h3>Partenaires</h3><button type="button" class="add">+ Ajouter</button></div><div class="repeat-items"><div class="repeat-row two-fields"><label>Entité / structure<input data-field="entite"></label><label>Rôle / fonction<input data-field="role"></label><button type="button" class="remove" aria-label="Supprimer">×</button></div></div></div>
+          <fieldset><legend>Dispositifs, contrats ou démarches</legend><div class="checks"><label><input type="checkbox" name="dispositifs" value="Cité éducative">Cité éducative</label><label><input type="checkbox" name="dispositifs" value="TER">TER</label><label><input type="checkbox" name="dispositifs" value="CLA">CLA</label><label><input type="checkbox" name="dispositifs" value="OTA 62">OTA 62</label></div></fieldset>
+          <label>Autre dispositif<input name="autre_dispositif"></label>
+        </section>
+
+        <section class="step" data-title="Évaluation de l’action">
+          <div class="section-head"><span>06</span><div><h2>Évaluation de l’action</h2><p>Précisez les effets recherchés et la manière de les observer.</p></div></div>
+          <div class="impact"><h3>À l’échelle des élèves</h3><label>Effets recherchés<textarea name="effets_eleves" rows="5"></textarea></label><label>Indicateurs et observables<textarea name="indicateurs_eleves" rows="4"></textarea></label></div>
+          <div class="impact"><h3>À l’échelle des enseignants</h3><label>Effets sur les pratiques enseignantes<textarea name="effets_enseignants" rows="5"></textarea></label><label>Indicateurs et observables<textarea name="indicateurs_enseignants" rows="4"></textarea></label></div>
+          <div class="impact"><h3>À l’échelle de l’école ou de l’établissement</h3><label>Effets recherchés<textarea name="effets_etab" rows="5"></textarea></label><label>Indicateurs et observables<textarea name="indicateurs_etab" rows="4"></textarea></label></div>
+        </section>
+
+        <section class="step" data-title="Accompagnement et dépôt">
+          <div class="section-head"><span>07</span><div><h2>Accompagnement et dépôt</h2><p>Finalisez le dossier et conservez-en une copie.</p></div></div>
+          <label>Besoins d’accompagnement par la CARDIE-SEPIA<textarea name="accompagnement" rows="6"></textarea></label>
+          <div class="public-only"><fieldset><legend>Le projet bénéficie-t-il déjà d’un financement ?</legend><div class="choices compact"><label><input type="radio" name="financement" value="Oui"><span>Oui</span></label><label><input type="radio" name="financement" value="Non"><span>Non</span></label></div></fieldset><div class="conditional" data-show="financement:Oui"><label>Précisions<textarea name="financement_details" rows="4"></textarea></label></div>
+          <fieldset><legend>L’action a-t-elle besoin d’une valorisation en HSE ?</legend><div class="choices compact"><label><input type="radio" name="hse" value="Oui"><span>Oui</span></label><label><input type="radio" name="hse" value="Non"><span>Non</span></label></div></fieldset><div class="conditional" data-show="hse:Oui"><label>Usage prévu<textarea name="hse_details" rows="4"></textarea></label></div></div>
+          <div class="upload"><div class="upload-icon">↥</div><div><h3>Documents complémentaires</h3><p>Ajoutez les documents permettant de préciser le projet.</p><label class="file-btn">Choisir des fichiers<input id="attachments" type="file" multiple accept=".pdf,.doc,.docx,.odt,.xls,.xlsx,.ods,.ppt,.pptx,.odp,.jpg,.jpeg,.png"></label></div><ul id="fileList"></ul></div>
+          <div class="security-note"><b>Dans ce démonstrateur</b>, les fichiers sélectionnés ne sont pas transmis et ne sont pas conservés après fermeture de la page.</div>
+          <div class="final-actions"><button type="button" class="secondary" id="downloadBackup">Télécharger une copie de sécurité</button><button type="button" class="secondary" id="printPdf">Imprimer / enregistrer en PDF</button><button type="button" class="primary submit-demo" id="submitDemo">Simuler le dépôt du dossier</button></div>
+        </section>
+
+        <div class="form-footer"><button type="button" class="back" id="prevBtn">← Précédent</button><span id="requiredHint">Les champs marqués « requis » doivent être complétés.</span><button type="button" class="primary" id="nextBtn">Enregistrer et continuer →</button></div>
+      </form>
+    </section>
+  </main>
+
+  <dialog id="successDialog"><div class="success-mark">✓</div><h2>Dépôt simulé avec succès</h2><p>Dans la version institutionnelle, le dossier serait maintenant transmis à l’équipe CARDIE-SEPIA et une attestation serait générée.</p><div class="dialog-actions"><button id="closeDialog" class="primary">Revenir au dossier</button></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
